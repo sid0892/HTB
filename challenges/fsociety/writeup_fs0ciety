@@ -1,0 +1,21 @@
+1) Extract the fsociety.zip from the challenge fs0ciety.zip file using the password 'hackthebox'.
+
+2) Use zip2john to create a hash of the zip file and save it to a txt file.
+	./zip2john fsociety.zip > hash.txt
+
+3) Use Jon to crack the password from the hash file.
+	 ./john --wordlist=password.lst hash.txt
+
+4) The decryption provides a txt file 'sshcreds_datacenter.txt'. The contents of this is base64 encoded text.
+
+MDExMDEwMDEgMDExMDAxMTAgMDEwMTExMTEgMDExMTEwMDEgMDAxMTAwMDAgMDExMTAxMDEgMDEwMTExMTEgMDExMDAwMTEgMDEwMDAwMDAgMDExMDExMTAgMDEwMTExMTEgMDAxMDAxMDAgMDExMDExMDEgMDAxMTAwMTEgMDExMDExMDAgMDExMDExMDAgMDEwMTExMTEgMDExMTAxMTEgMDExMDEwMDAgMDEwMDAwMDAgMDExMTAxMDAgMDEwMTExMTEgMDExMTAxMDAgMDExMDEwMDAgMDAxMTAwMTEgMDEwMTExMTEgMDExMTAwMTAgMDAxMTAwMDAgMDExMDAwMTEgMDExMDEwMTEgMDEwMTExMTEgMDExMDEwMDEgMDExMTAwMTEgMDEwMTExMTEgMDExMDAwMTEgMDAxMTAwMDAgMDAxMTAwMDAgMDExMDEwMTEgMDExMDEwMDEgMDExMDExMTAgMDExMDAxMTE=
+
+
+5) Decoding this gives a binary text.
+01101001 01100110 01011111 01111001 00110000 01110101 01011111 01100011 01000000 01101110 01011111 00100100 01101101 00110011 01101100 01101100 01011111 01110111 01101000 01000000 01110100 01011111 01110100 01101000 00110011 01011111 01110010 00110000 01100011 01101011 01011111 01101001 01110011 01011111 01100011 00110000 00110000 01101011 01101001 01101110 01100111
+
+6) Decoding this binary to ASCII provides the flag with spaces between them.
+i f _ y 0 u _ c @ n _ $ m 3 l l _ w h @ t _ t h 3 _ r 0 c k _ i s _ c 0 0 k i n g
+
+7) The flag is: 
+HTB{if_y0u_c@n_$m3ll_wh@t_th3_r0ck_is_c00king}

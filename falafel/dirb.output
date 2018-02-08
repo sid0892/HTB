@@ -1,0 +1,54 @@
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+OUTPUT_FILE: dirb.output
+START_TIME: Tue Feb  6 12:50:55 2018
+URL_BASE: http://10.10.10.73/
+WORDLIST_FILES: /usr/share/dirb/wordlists/common.txt
+
+-----------------
+
+
+(!) FATAL: Error opening wordlist file: /usr/share/dirb/wordlists/common.txt
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+OUTPUT_FILE: dirb.output
+START_TIME: Tue Feb  6 12:58:42 2018
+URL_BASE: http://10.10.10.73/
+WORDLIST_FILES: /usr/share/dirb/wordlists/common.txt
+
+-----------------
+
+GENERATED WORDS: 4612
+
+---- Scanning URL: http://10.10.10.73/ ----
+==> DIRECTORY: http://10.10.10.73/assets/
+==> DIRECTORY: http://10.10.10.73/css/
+==> DIRECTORY: http://10.10.10.73/images/
++ http://10.10.10.73/index.php (CODE:200|SIZE:7203)
+==> DIRECTORY: http://10.10.10.73/js/
++ http://10.10.10.73/robots.txt (CODE:200|SIZE:30)
++ http://10.10.10.73/server-status (CODE:403|SIZE:299)
+==> DIRECTORY: http://10.10.10.73/uploads/
+
+---- Entering directory: http://10.10.10.73/assets/ ----
+
+---- Entering directory: http://10.10.10.73/css/ ----
++ http://10.10.10.73/css/fonts (CODE:200|SIZE:2302)
+
+---- Entering directory: http://10.10.10.73/images/ ----
+
+---- Entering directory: http://10.10.10.73/js/ ----
+
+---- Entering directory: http://10.10.10.73/uploads/ ----
+
+-----------------
+END_TIME: Tue Feb  6 13:18:55 2018
+DOWNLOADED: 27672 - FOUND: 4

@@ -1,0 +1,7 @@
+NIBBLES
+
+1) nmap results shows that port 22 and port 80 is open.
+
+2) On webserver, the source code of webserver main page shows that there is a directory called '/nibbleblog/'.
+
+3) 
