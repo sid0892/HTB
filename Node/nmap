@@ -1,0 +1,25 @@
+# Nmap 7.01 scan initiated Sat Jan 20 13:59:54 2018 as: nmap -sV -Pn -sC -v -o nmap 10.10.10.58
+Nmap scan report for 10.10.10.58
+Host is up (0.018s latency).
+Not shown: 998 filtered ports
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.2 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 dc:5e:34:a6:25:db:43:ec:eb:40:f4:96:7b:8e:d1:da (RSA)
+|_  256 6c:8e:5e:5f:4f:d5:41:7d:18:95:d1:dc:2e:3f:e5:9c (ECDSA)
+3000/tcp open  http    Node.js Express framework
+| hadoop-datanode-info: 
+|_  Logs: /login
+|_hadoop-jobtracker-info: 
+| hadoop-tasktracker-info: 
+|_  Logs: /login
+|_hbase-master-info: 
+|_http-favicon: Unknown favicon MD5: 30F2CC86275A96B522F9818576EC65CF
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-title: MyPlace
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sat Jan 20 14:00:11 2018 -- 1 IP address (1 host up) scanned in 17.05 seconds

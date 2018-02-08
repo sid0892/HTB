@@ -1,0 +1,12 @@
+1) nmap the box (nmap -sV -sC -Pn -v -oA nmap 10.10.10.58)
+
+2) Found port 3000 open with Node js running.
+
+3) On further investigation, the usernames and passwords was found:
+          http://10.10.10.58:3000/api/users/
+
+4) The passwords were sha256 which was easily decrypted online. There was also an admin account.
+
+5) This admin account was used to login and a '.backup' file was downloaded.
+
+

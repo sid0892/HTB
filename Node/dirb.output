@@ -1,0 +1,86 @@
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+OUTPUT_FILE: dirb.output
+START_TIME: Sat Jan 20 14:03:17 2018
+URL_BASE: http://10.10.10.58:3000/
+WORDLIST_FILES: /usr/share/dirb/wordlists/common.txt
+
+-----------------
+
+GENERATED WORDS: 4612
+
+---- Scanning URL: http://10.10.10.58:3000/ ----
+(!) WARNING: NOT_FOUND[] page not stable, unable to determine the correct URLs {200}.
+    (Try using FineTunning: '-f')
+
+-----------------
+END_TIME: Sat Jan 20 14:03:17 2018
+DOWNLOADED: 0 - FOUND: 0
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+OUTPUT_FILE: dirb.output
+START_TIME: Sat Jan 20 14:03:32 2018
+URL_BASE: http://10.10.10.58:3000/
+WORDLIST_FILES: /usr/share/dirb/wordlists/common.txt
+
+-----------------
+
+GENERATED WORDS: 4612
+
+---- Scanning URL: http://10.10.10.58:3000/ ----
+(!) WARNING: NOT_FOUND[] page not stable, unable to determine the correct URLs {200}.
+    (Try using FineTunning: '-f')
+
+-----------------
+END_TIME: Sat Jan 20 14:03:33 2018
+DOWNLOADED: 0 - FOUND: 0
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+OUTPUT_FILE: dirb.output
+START_TIME: Sat Jan 20 14:03:38 2018
+URL_BASE: http://10.10.10.58:3000/
+WORDLIST_FILES: /usr/share/dirb/wordlists/common.txt
+OPTION: Fine tunning of NOT_FOUND detection
+
+-----------------
+
+GENERATED WORDS: 4612
+
+---- Scanning URL: http://10.10.10.58:3000/ ----
+
+-----------------
+END_TIME: Sat Jan 20 14:05:19 2018
+DOWNLOADED: 4612 - FOUND: 0
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+OUTPUT_FILE: dirb.output
+START_TIME: Sat Jan 20 14:58:26 2018
+URL_BASE: http://10.10.10.58:3000/api/
+WORDLIST_FILES: /usr/share/dirb/wordlists/common.txt
+OPTION: Fine tunning of NOT_FOUND detection
+
+-----------------
+
+GENERATED WORDS: 4612
+
+---- Scanning URL: http://10.10.10.58:3000/api/ ----
+
+-----------------
+END_TIME: Sat Jan 20 15:00:06 2018
+DOWNLOADED: 4612 - FOUND: 0

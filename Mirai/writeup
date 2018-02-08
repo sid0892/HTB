@@ -1,0 +1,34 @@
+MIRAI
+
+1) Use nmap to scan machine and found port 53,22 and 80 open.
+
+2) Port 80 found open, so used dirb to scan the webserver.
+
+3) Found http://10.10.10.48/admin/ on the scan.
+
+4) Visiting the site showed that it was running pi-hole.
+
+5) Analysing the name and the service pi-hole allowed me to conclude that there may be a chance that SSH through mirai login may be possible.
+
+6) Use default password to login to the machine:
+        'ssh pi@10.10.10.48' - password:raspberry
+
+7) user.txt is present on /home/pi/Desktop (ff837707441b257a20e32199d7c8838d)
+
+8) Pi user can use sudo. So tried 'sudo cat /root/root.txt'.
+	'I lost my original root.txt! I think I may have a backup on my USB stick...'
+
+9) Checked /media/usbstick/. There is a damnit.txt file. It contains:
+	'Damnit! Sorry man I accidentally deleted your files off the USB stick.
+	 Do you know if there is any way to get them back?
+
+	 -James'
+
+10) Check the disks available (df -alh).
+
+11) /dev/sdb is the USB which is mounted at /media/usbstick
+
+12) Though the file is deleted. We can do 'cat /dev/sdb | strings' to extract strings. 
+
+13) We can see the root.txt hash. (3d3e483143ff12ec505d026fa13e020b)
+

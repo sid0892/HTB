@@ -1,0 +1,44 @@
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+OUTPUT_FILE: dirb.output
+START_TIME: Sun Jan 21 20:45:51 2018
+URL_BASE: http://10.10.10.48/
+WORDLIST_FILES: /usr/share/dirb/wordlists/common.txt
+
+-----------------
+
+GENERATED WORDS: 4612
+
+---- Scanning URL: http://10.10.10.48/ ----
+==> DIRECTORY: http://10.10.10.48/admin/
++ http://10.10.10.48/swfobject.js (CODE:200|SIZE:61)
+
+---- Entering directory: http://10.10.10.48/admin/ ----
++ http://10.10.10.48/admin/.git/HEAD (CODE:200|SIZE:23)
+==> DIRECTORY: http://10.10.10.48/admin/img/
++ http://10.10.10.48/admin/index.php (CODE:200|SIZE:14620)
++ http://10.10.10.48/admin/LICENSE (CODE:200|SIZE:14164)
+==> DIRECTORY: http://10.10.10.48/admin/scripts/
+==> DIRECTORY: http://10.10.10.48/admin/style/
+
+---- Entering directory: http://10.10.10.48/admin/img/ ----
+
+---- Entering directory: http://10.10.10.48/admin/scripts/ ----
+==> DIRECTORY: http://10.10.10.48/admin/scripts/vendor/
+
+---- Entering directory: http://10.10.10.48/admin/style/ ----
+==> DIRECTORY: http://10.10.10.48/admin/style/vendor/
+
+---- Entering directory: http://10.10.10.48/admin/scripts/vendor/ ----
++ http://10.10.10.48/admin/scripts/vendor/LICENSE (CODE:200|SIZE:1085)
+
+---- Entering directory: http://10.10.10.48/admin/style/vendor/ ----
++ http://10.10.10.48/admin/style/vendor/LICENSE (CODE:200|SIZE:1085)
+
+-----------------
+END_TIME: Sun Jan 21 20:57:19 2018
+DOWNLOADED: 32284 - FOUND: 6
