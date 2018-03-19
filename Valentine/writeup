@@ -1,0 +1,32 @@
+Valentine
+
+1) nmap shows port 80,443,22 open.
+
+2) website has various directories. encode. decode and dev.
+
+3) the dev directory 'dev' has an RSA key which is hex encoded. The hint of the username to be used is the name of the file 'hype_key'. Thus username is 'hype'.
+
+4) The main image on the website is the hint to the exploit. It is a heat bleed attack.
+
+5) Use metasploit to exploit this vulnerability.
+
+6) Get pass word for ssh key in the heartbleed information (heartbleedbelievethehype).
+
+7)use ssh -i my_ssh_key.txt hype@10.10.10.79
+
+8) Get user flag.
+
+9) Get dirtycow exploit from: https://www.exploit-db.com/exploits/40839/
+
+10) compile the c file:
+	gcc -pthread cow.c -o cow -lcrypt
+
+11) Execute the file ./cow
+
+12) Adds user 'firefart' and asks for password.
+
+13) do 'su firefart'
+
+14) Got root.
+
+15) cd /root; cat root.txt

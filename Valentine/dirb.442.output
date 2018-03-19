@@ -1,0 +1,31 @@
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+OUTPUT_FILE: dirb.442.output
+START_TIME: Tue Mar 13 15:12:08 2018
+URL_BASE: https://10.10.10.79/
+WORDLIST_FILES: /usr/share/dirb/wordlists/common.txt
+
+-----------------
+
+GENERATED WORDS: 4612
+
+---- Scanning URL: https://10.10.10.79/ ----
++ https://10.10.10.79/cgi-bin/ (CODE:403|SIZE:288)
++ https://10.10.10.79/decode (CODE:200|SIZE:552)
+==> DIRECTORY: https://10.10.10.79/dev/
++ https://10.10.10.79/encode (CODE:200|SIZE:554)
++ https://10.10.10.79/index (CODE:200|SIZE:38)
++ https://10.10.10.79/index.php (CODE:200|SIZE:38)
++ https://10.10.10.79/server-status (CODE:403|SIZE:293)
+
+---- Entering directory: https://10.10.10.79/dev/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.
+    (Use mode '-w' if you want to scan it anyway)
+
+-----------------
+END_TIME: Tue Mar 13 15:37:07 2018
+DOWNLOADED: 4612 - FOUND: 6
