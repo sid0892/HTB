@@ -1,0 +1,9 @@
+
+Gobuster v1.2                OJ Reeves (@TheColonial)
+=====================================================
+[+] Mode         : dir
+[+] Url/Domain   : http://10.10.10.85:3000/
+[+] Threads      : 50
+[+] Wordlist     : /root/useful_stuff/SecLists/Discovery/Web-Content/raft-medium-directories.txt
+[+] Status codes : 200,204,301,302,307
+=====================================================

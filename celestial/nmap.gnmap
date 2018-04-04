@@ -1,0 +1,5 @@
+# Nmap 7.60 scan initiated Mon Apr  2 15:15:28 2018 as: nmap -sV -sC -p 3000,4443,8254 -v -oA nmap 10.10.10.85
+# Ports scanned: TCP(3;3000,4443,8254) UDP(0;) SCTP(0;) PROTOCOLS(0;)
+Host: 10.10.10.85 ()	Status: Up
+Host: 10.10.10.85 ()	Ports: 3000/open/tcp//http//Node.js Express framework/, 4443/closed/tcp//pharos///, 8254/closed/tcp//unknown///
+# Nmap done at Mon Apr  2 15:15:41 2018 -- 1 IP address (1 host up) scanned in 13.31 seconds
